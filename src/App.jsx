@@ -3,6 +3,7 @@ import {Box, FormControl, MenuItem, Paper, Select, Slider, Tab, Tabs, Tooltip, T
 import LowPriorityIcon from '@mui/icons-material/LowPriority';
 import ReportProblemIcon from '@mui/icons-material/ReportProblem';
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
+import "./App.css"
 
 const tabs = [
     {
@@ -97,10 +98,9 @@ const App = () => {
                 alignItems: 'center',
                 minHeight: '100vh',
                 backgroundColor: '#2c2c2c',
-                padding: '20px',
             }}
         >
-            <Paper elevation={3} sx={{padding: '30px 40px'}}>
+            <Paper elevation={0}>
                 <Typography variant="h5" fontWeight="bolder" gutterBottom>
                     Estimate Time Taken for your Tech Task
                 </Typography>
@@ -180,7 +180,7 @@ const App = () => {
                                     iconPosition="start"
                                 />
                             </Tabs>
-                            <Typography variant="body2" fontWeight="bold" sx={{marginLeft: '10px'}}>
+                            <Typography variant="body2" fontWeight="bold" sx={{marginLeft: '10px', whiteSpace: 'nowrap'}}>
                                 x {Math.round(getTabImpactMultiplier(selectedTabs[index]) * 100) - 100}%
                             </Typography>
                         </Box>
