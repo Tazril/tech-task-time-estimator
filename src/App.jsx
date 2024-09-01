@@ -1,5 +1,5 @@
-import {useState} from 'react';
-import {Box, FormControl, MenuItem, Paper, Select, Slider, Tab, Tabs, Tooltip, Typography} from '@mui/material';
+import { useState } from 'react';
+import { Box, FormControl, MenuItem, Paper, Select, Slider, Tab, Tabs, Tooltip, Typography } from '@mui/material';
 import LowPriorityIcon from '@mui/icons-material/LowPriority';
 import ReportProblemIcon from '@mui/icons-material/ReportProblem';
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
@@ -98,17 +98,18 @@ const App = () => {
                 alignItems: 'center',
                 minHeight: '100vh',
                 backgroundColor: '#2c2c2c',
+                padding: '15px'
             }}
         >
-            <Paper elevation={0}>
+            <Paper elevation={3} sx={{ padding: "30px 40px" }}>
                 <Typography variant="h5" fontWeight="bolder" gutterBottom>
                     Estimate Time Taken for your Tech Task
                 </Typography>
 
-                <Box sx={{marginBottom: '20px'}}>
-                    <Typography variant="subtitle1" sx={{fontWeight: 'bold'}}>Working Hours per Day</Typography>
+                <Box sx={{ marginBottom: '20px' }}>
+                    <Typography variant="subtitle1" sx={{ fontWeight: 'bold' }}>Working Hours per Day</Typography>
                     <Typography variant="body2">How many hours you plan to work each day.</Typography>
-                    <Box sx={{display: 'flex', alignItems: 'center', justifyContent: 'space-between'}}>
+                    <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                         <Slider
                             value={workingHours}
                             onChange={(e, newValue) => setWorkingHours(newValue)}
@@ -116,41 +117,42 @@ const App = () => {
                             max={24}
                         />
                         <Typography variant="body2" fontWeight="bold"
-                                    sx={{marginLeft: '15px', whiteSpace: 'nowrap'}}>{workingHours} hours</Typography>
+                            sx={{ marginLeft: '15px', whiteSpace: 'nowrap' }}>{workingHours} hours</Typography>
                     </Box>
                 </Box>
 
-                <Box sx={{marginBottom: '20px'}}>
-                    <Typography variant="subtitle1" sx={{fontWeight: 'bold'}}>Estimated Time</Typography>
+                <Box sx={{ marginBottom: '20px' }}>
+                    <Typography variant="subtitle1" sx={{ fontWeight: 'bold' }}>Estimated Time</Typography>
                     <Typography variant="body2">Rough estimate of the total time required based on the
                         complexity.</Typography>
-                    <Box sx={{display: 'flex', alignItems: 'center', justifyContent: 'space-between'}}>
+                    <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                         <Slider
                             value={estimatedTime}
                             onChange={(e, newValue) => setEstimatedTime(newValue)}
                             min={1}
                             max={30}
                         />
-                        <FormControl sx={{minWidth: 100, marginLeft: '20px', marginTop: '10px'}}>
+                        <FormControl sx={{ minWidth: 100, marginLeft: '20px', marginTop: '10px' }}>
                             <Select
                                 value={timeUnit}
                                 onChange={(e) => setTimeUnit(e.target.value)}
                             >
-                                <MenuItem value={'hours'}>Hours</MenuItem>
-                                <MenuItem value={'days'}>Days </MenuItem>
+                                <MenuItem value={'hours'}>Hour</MenuItem>
+                                <MenuItem value={'days'}>Day</MenuItem>
                             </Select>
                         </FormControl>
-                        <Typography variant="body2" fontWeight="bold" sx={{marginLeft: '10px', whiteSpace: 'nowrap'}}>
+                        <Typography variant="body2" fontWeight="bold" sx={{ marginLeft: '10px', whiteSpace: 'nowrap' }}>
                             {estimatedTime} {timeUnit}
                         </Typography>
                     </Box>
                 </Box>
 
-                {tabs.map(({label, description, low, medium, high}, index) => (
-                    <Box key={index} sx={{marginBottom: '20px'}}>
-                        <Typography variant="subtitle1" sx={{fontWeight: 'bold'}}>{label}</Typography>
+
+                {tabs.map(({ label, description, low, medium, high }, index) => (
+                    <Box key={index} sx={{ marginBottom: '20px' }}>
+                        <Typography variant="subtitle1" sx={{ fontWeight: 'bold' }}>{label}</Typography>
                         <Typography variant="body2">{description}.</Typography>
-                        <Box sx={{display: 'flex', alignItems: 'center', justifyContent: 'space-between'}}>
+                        <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                             <Tabs
                                 value={selectedTabs[index]}
                                 onChange={(e, newValue) => handleTabChange(index, newValue)}
@@ -162,36 +164,37 @@ const App = () => {
                                     label={
                                         <Tooltip title={low}>Low</Tooltip>
                                     }
-                                    icon={<LowPriorityIcon/>}
-                                    iconPosition="start"
+                                    icon={<LowPriorityIcon />}
+                                    iconPosition="top"
+
                                 />
                                 <Tab
                                     label={
                                         <Tooltip title={medium}>Medium</Tooltip>
                                     }
-                                    icon={<RemoveRedEyeIcon/>}
-                                    iconPosition="start"
+                                    icon={<RemoveRedEyeIcon />}
+                                    iconPosition="top"
                                 />
                                 <Tab
                                     label={
                                         <Tooltip title={high}>High</Tooltip>
                                     }
-                                    icon={<ReportProblemIcon/>}
-                                    iconPosition="start"
+                                    icon={<ReportProblemIcon />}
+                                    iconPosition="top"
                                 />
                             </Tabs>
-                            <Typography variant="body2" fontWeight="bold" sx={{marginLeft: '10px', whiteSpace: 'nowrap'}}>
+                            <Typography variant="body2" fontWeight="bold" sx={{ marginLeft: '10px', whiteSpace: 'nowrap' }}>
                                 x {Math.round(getTabImpactMultiplier(selectedTabs[index]) * 100) - 100}%
                             </Typography>
                         </Box>
                     </Box>
                 ))}
 
-                <Box sx={{marginBottom: '20px'}}>
-                    <Typography variant="subtitle1" sx={{fontWeight: 'bold'}}>Planning Fallacy (Optional)</Typography>
+                <Box sx={{ marginBottom: '20px' }}>
+                    <Typography variant="subtitle1" sx={{ fontWeight: 'bold' }}>Planning Fallacy (Optional)</Typography>
                     <Typography variant="body2">Cognitive bias that causes people to underestimate the time associated
                         with a project</Typography>
-                    <Box sx={{display: 'flex', alignItems: 'center', justifyContent: 'space-between'}}>
+                    <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                         <Slider
                             value={planningFallacy}
                             onChange={(e, newValue) => setPlanningFallacy(newValue)}
@@ -199,15 +202,15 @@ const App = () => {
                             max={100}
                             step={5}
                         />
-                        <Typography variant="body2" fontWeight="bold" sx={{marginLeft: '10px', whiteSpace: 'nowrap'}}>
+                        <Typography variant="body2" fontWeight="bold" sx={{ marginLeft: '10px', whiteSpace: 'nowrap' }}>
                             x {planningFallacy}%
                         </Typography>
                     </Box>
                 </Box>
 
                 <Typography variant="h6">Estimated Time: {calculateTotalEstimatedTime()}</Typography>
-                <br/>
-                <Typography variant="caption">Made with ❤️ by Tazril Ali</Typography>
+                <br />
+                <Typography variant="caption" minWidth={100}>Made with ❤️ by Tazril Ali</Typography>
             </Paper>
         </Box>
     );
