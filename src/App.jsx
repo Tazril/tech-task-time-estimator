@@ -112,7 +112,7 @@ const App = () => {
                 <Typography variant="h5" fontWeight="bolder" gutterBottom>
                     Estimate the time required to complete a technical task.
                 </Typography>
-                <Typography variant="body2" gutterBottom sx={{maxWidth: 600}}>
+                <Typography variant="body2" gutterBottom sx={{maxWidth: 550}}>
                     STMate factors in multiple variables such as working hours, task complexity, dependencies, stakeholder
                     interactions, skill level, environmental factors, and planning fallacy (cognitive bias) to provide a
                     more accurate time estimate
