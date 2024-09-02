@@ -110,7 +110,14 @@ const App = () => {
                     </Typography>
                 </Box>
                 <Typography variant="h5" fontWeight="bolder" gutterBottom>
-                    Estimate Time for your Tech Task
+                    Estimate the time required to complete a technical task.
+                </Typography>
+                <Typography variant="body2" gutterBottom>
+                    It factors in multiple variables such as working hours, task complexity, dependencies,
+                    stakeholder <br/>
+                    interactions, skill level, environmental factors, and planning fallacy (cognitive bias) to provide
+                    a <br/>
+                    more accurate time estimate
                 </Typography>
                 <Box sx={{marginBottom: '20px'}}>
                     <Typography variant="subtitle1" sx={{fontWeight: 'bold'}}>Working Hours per Day</Typography>
@@ -217,7 +224,8 @@ const App = () => {
 
                 <Typography variant="h6">Estimated Time: {calculateTotalEstimatedTime()}</Typography>
                 <br/>
-                <Typography variant="caption" minWidth={100}>Made with ❤️ by Tazril Ali</Typography>
+                <Typography variant="caption" minWidth={100}>Made with ❤️ by
+                     <a href="https://github.com/Tazril/tech-task-time-estimator" target="_blank"> Tazril Ali</a></Typography>
             </Paper>
         </Box>
     );
