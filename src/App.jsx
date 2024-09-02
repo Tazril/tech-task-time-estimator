@@ -220,7 +220,7 @@ const App = () => {
                     </Box>
                 </Box>
 
-                <Typography variant="h6">Estimated Time: {calculateTotalEstimatedTime()}</Typography>
+                <Typography variant="h6"><strong>Estimated Time:</strong> {calculateTotalEstimatedTime()}</Typography>
                 <br/>
                 <Typography variant="caption" minWidth={100}>Made with ❤️ by
                     <a href="https://github.com/Tazril/tech-task-time-estimator" target="_blank"> Tazril
