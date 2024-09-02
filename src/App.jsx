@@ -4,6 +4,7 @@ import LowPriorityIcon from '@mui/icons-material/LowPriority';
 import ReportProblemIcon from '@mui/icons-material/ReportProblem';
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 import "./App.css"
+import estimateImg from "./assets/estimate-thumb.png"
 
 const tabs = [
     {
@@ -103,7 +104,7 @@ const App = () => {
         >
             <Paper elevation={3} sx={{padding: "30px 40px"}}>
                 <Box sx={{alignItems: 'center', justifyContent: 'start', display: 'flex', marginBottom: '10px'}}>
-                    <img src="./assets/estimate.png" width="25px" height="25px" alt="STmate log"/>
+                    <img src={estimateImg} width="25px" height="25px" alt="STmate log"/>
                     <Typography variant="body2" fontWeight="bold" gutterBottom sx={{margin: '5px 10px'}}>
                         STMate
                     </Typography>
